@@ -22,6 +22,19 @@
   `(defn ~name {:unit-test true} ~parameters
        ~@body))
 
+(defn integers
+  ([] (integers 1))
+  ([n] (lazy-cons n (integers (inc n)))))
+
+(defmacro simple-tests [prefix & body]
+  (cons 'do 
+	(let [pairs (partition 2 body)]
+	  (map (fn [[statement expected-result] test-num] 
+		 `(deftest ~(symbol (str prefix "-" test-num)) []
+		    (assert-equal ~expected-result ~statement)))
+	       pairs (integers)))))
+
+
 (defstruct #^{:doc "Stores the tests executed; failures and
   errors are lists of throwables."}
   test-result :tests :failures :errors)
