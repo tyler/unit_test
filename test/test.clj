@@ -15,7 +15,7 @@
 
 (ns unit-test.test
     (:use unit-test)
-    (:use unit-test.examples))
+    (:use unit-test.examples.examples))
 
 (defn result-count [test-result]
   ;; There's a map map waiting to bust out from this code.

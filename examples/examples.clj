@@ -12,7 +12,7 @@
 ;; This test demonstrates a number of simple tests, and also exercises
 ;; the UI in terms of what it shows for failures and errors.
 
-(ns unit-test.examples
+(ns unit-test.examples.examples
     (:use unit-test))
 
 
