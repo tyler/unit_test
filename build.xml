@@ -1,0 +1,23 @@
+<project name="unit-test" default="jar">
+
+  <description>
+    Pack all unit-test sources into a JAR.
+  </description>
+
+  <!-- The JAR file to create. -->
+  <property name="jarfile" location="unit-test.jar"/>
+
+  <target name="clean"
+          description="Remove generated files and directories.">
+    <delete file="${jarfile}"/>
+  </target>
+
+  <target name="jar"
+          description="Create jar file.">
+    <jar jarfile="${jarfile}">
+      <fileset dir="." includes="CPL.TXT"/>
+      <fileset dir="." includes="**/*.clj"/>
+    </jar>
+  </target>
+
+</project>
